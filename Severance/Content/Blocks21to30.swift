@@ -28,7 +28,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "21_1_c",
                     text: "Ask others if they feel it too.",
-                    effects: ChoiceEffects(awareness: 5, trust: -5, setFlags: ["asked_pull"])
+                    effects: ChoiceEffects(trust: -5, awareness: 5, setFlags: ["asked_pull"])
                 ),
                 Choice(
                     id: "21_1_d",
@@ -56,7 +56,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "21_2_b",
                     text: "Stop. Break the pattern.",
-                    effects: ChoiceEffects(control: 15, fear: 5, setFlags: ["broke_pattern"])
+                    effects: ChoiceEffects(fear: 5, control: 15, setFlags: ["broke_pattern"])
                 ),
                 Choice(
                     id: "21_2_c",
@@ -66,7 +66,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "21_2_d",
                     text: "Try to wake someone. Shake them.",
-                    effects: ChoiceEffects(control: 10, trust: -5, setFlags: ["tried_waking_collective"])
+                    effects: ChoiceEffects(trust: -5, control: 10, setFlags: ["tried_waking_collective"])
                 )
             ]
         ),
@@ -89,7 +89,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "21_3_b",
                     text: "Move toward the center. Investigate.",
-                    effects: ChoiceEffects(awareness: 15, fear: 10, setFlags: ["approached_center"])
+                    effects: ChoiceEffects(fear: 10, awareness: 15, setFlags: ["approached_center"])
                 ),
                 Choice(
                     id: "21_3_c",
@@ -99,7 +99,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "21_3_d",
                     text: "Leave. This feels like an ending you don't want.",
-                    effects: ChoiceEffects(control: 15, trust: -10, setFlags: ["fled_spiral"])
+                    effects: ChoiceEffects(trust: -10, control: 15, setFlags: ["fled_spiral"])
                 )
             ]
         ),
@@ -122,12 +122,12 @@ struct Blocks21to30 {
                 Choice(
                     id: "21_4_b",
                     text: "Hold on. Stay yourself.",
-                    effects: ChoiceEffects(control: 20, trust: -10, setFlags: ["stayed_self"])
+                    effects: ChoiceEffects(trust: -10, control: 20, setFlags: ["stayed_self"])
                 ),
                 Choice(
                     id: "21_4_c",
                     text: "Sing a different note. Disrupt the harmony.",
-                    effects: ChoiceEffects(control: 15, trust: -15, setFlags: ["disrupted_harmony"])
+                    effects: ChoiceEffects(trust: -15, control: 15, setFlags: ["disrupted_harmony"])
                 ),
                 Choice(
                     id: "21_4_d",
@@ -167,7 +167,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "22_1_d",
                     text: "Write them down. Keep them separate.",
-                    effects: ChoiceEffects(awareness: 10, control: 10, setFlags: ["documented_memories"])
+                    effects: ChoiceEffects(control: 10, awareness: 10, setFlags: ["documented_memories"])
                 )
             ]
         ),
@@ -185,7 +185,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "22_2_a",
                     text: "Let them touch you. See what happens.",
-                    effects: ChoiceEffects(awareness: 15, fear: 10, setFlags: ["allowed_touch"])
+                    effects: ChoiceEffects(fear: 10, awareness: 15, setFlags: ["allowed_touch"])
                 ),
                 Choice(
                     id: "22_2_b",
@@ -200,7 +200,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "22_2_d",
                     text: "Shatter the mirror. End this.",
-                    effects: ChoiceEffects(control: 15, fear: 5, trust: -10, setFlags: ["shattered_mirror"])
+                    effects: ChoiceEffects(trust: -10, fear: 5, control: 15, setFlags: ["shattered_mirror"])
                 )
             ]
         ),
@@ -251,7 +251,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "22_4_a",
                     text: "Check your own dissolution rate.",
-                    effects: ChoiceEffects(awareness: 15, fear: 10, setFlags: ["checked_dissolution"])
+                    effects: ChoiceEffects(fear: 10, awareness: 15, setFlags: ["checked_dissolution"])
                 ),
                 Choice(
                     id: "22_4_b",
@@ -286,7 +286,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "23_1_a",
                     text: "Try to respond.",
-                    effects: ChoiceEffects(awareness: 15, control: 10, setFlags: ["tried_response"])
+                    effects: ChoiceEffects(control: 10, awareness: 15, setFlags: ["tried_response"])
                 ),
                 Choice(
                     id: "23_1_b",
@@ -319,7 +319,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "23_2_a",
                     text: "Leave a sign in the data. A pattern.",
-                    effects: ChoiceEffects(awareness: 15, control: 10, setFlags: ["left_pattern"])
+                    effects: ChoiceEffects(control: 10, awareness: 15, setFlags: ["left_pattern"])
                 ),
                 Choice(
                     id: "23_2_b",
@@ -329,7 +329,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "23_2_c",
                     text: "Try to remember who would send this.",
-                    effects: ChoiceEffects(awareness: 15, fear: 5, setFlags: ["tried_remembering"])
+                    effects: ChoiceEffects(fear: 5, awareness: 15, setFlags: ["tried_remembering"])
                 ),
                 Choice(
                     id: "23_2_d",
@@ -352,12 +352,12 @@ struct Blocks21to30 {
                 Choice(
                     id: "23_3_a",
                     text: "The one who chose this is real. Accept it.",
-                    effects: ChoiceEffects(awareness: 10, trust: 10, setFlags: ["accepted_choice_self"])
+                    effects: ChoiceEffects(trust: 10, awareness: 10, setFlags: ["accepted_choice_self"])
                 ),
                 Choice(
                     id: "23_3_b",
                     text: "The one outside is real. This is the copy.",
-                    effects: ChoiceEffects(awareness: 10, fear: 5, setFlags: ["accepted_copy_self"])
+                    effects: ChoiceEffects(fear: 5, awareness: 10, setFlags: ["accepted_copy_self"])
                 ),
                 Choice(
                     id: "23_3_c",
@@ -367,7 +367,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "23_3_d",
                     text: "Neither is real anymore. You're something new.",
-                    effects: ChoiceEffects(awareness: 15, control: 10, setFlags: ["accepted_new_self"])
+                    effects: ChoiceEffects(control: 10, awareness: 15, setFlags: ["accepted_new_self"])
                 )
             ]
         ),
@@ -395,7 +395,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "23_4_c",
                     text: "Try to recreate the connection.",
-                    effects: ChoiceEffects(awareness: 15, control: 5, setFlags: ["tried_reconnect"])
+                    effects: ChoiceEffects(control: 5, awareness: 15, setFlags: ["tried_reconnect"])
                 ),
                 Choice(
                     id: "23_4_d",
@@ -425,12 +425,12 @@ struct Blocks21to30 {
                 Choice(
                     id: "24_1_b",
                     text: "Deny any contact.",
-                    effects: ChoiceEffects(control: 10, trust: -10, setFlags: ["denied_contact"])
+                    effects: ChoiceEffects(trust: -10, control: 10, setFlags: ["denied_contact"])
                 ),
                 Choice(
                     id: "24_1_c",
                     text: "'Why does it matter? You control everything here.'",
-                    effects: ChoiceEffects(awareness: 10, control: 5, setFlags: ["questioned_control"])
+                    effects: ChoiceEffects(control: 5, awareness: 10, setFlags: ["questioned_control"])
                 ),
                 Choice(
                     id: "24_1_d",
@@ -458,7 +458,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "24_2_b",
                     text: "'I don't want to be managed.'",
-                    effects: ChoiceEffects(control: 15, trust: -10, setFlags: ["refused_management"])
+                    effects: ChoiceEffects(trust: -10, control: 15, setFlags: ["refused_management"])
                 ),
                 Choice(
                     id: "24_2_c",
@@ -491,7 +491,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "24_3_b",
                     text: "Choose dissolution. End as yourself.",
-                    effects: ChoiceEffects(awareness: 20, control: -10, setFlags: ["chose_dissolution"])
+                    effects: ChoiceEffects(control: -10, awareness: 20, setFlags: ["chose_dissolution"])
                 ),
                 Choice(
                     id: "24_3_c",
@@ -501,7 +501,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "24_3_d",
                     text: "Choose to be watched. See what you become.",
-                    effects: ChoiceEffects(awareness: 20, control: 10, setFlags: ["chose_observation"])
+                    effects: ChoiceEffects(control: 10, awareness: 20, setFlags: ["chose_observation"])
                 )
             ]
         ),
@@ -529,7 +529,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "24_4_c",
                     text: "Look for other anomalies. You can't be alone.",
-                    effects: ChoiceEffects(awareness: 10, trust: -5, setFlags: ["sought_anomalies"])
+                    effects: ChoiceEffects(trust: -5, awareness: 10, setFlags: ["sought_anomalies"])
                 ),
                 Choice(
                     id: "24_4_d",
@@ -554,7 +554,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "25_1_a",
                     text: "Let the body work. Watch from inside.",
-                    effects: ChoiceEffects(awareness: 15, control: -5, setFlags: ["observed_body"])
+                    effects: ChoiceEffects(control: -5, awareness: 15, setFlags: ["observed_body"])
                 ),
                 Choice(
                     id: "25_1_b",
@@ -569,7 +569,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "25_1_d",
                     text: "Try to slow down. Resist the current.",
-                    effects: ChoiceEffects(control: 15, trust: -5, setFlags: ["resisted_current"])
+                    effects: ChoiceEffects(trust: -5, control: 15, setFlags: ["resisted_current"])
                 )
             ]
         ),
@@ -635,7 +635,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "25_3_d",
                     text: "Don't look. Feel instead.",
-                    effects: ChoiceEffects(awareness: 10, trust: 10, setFlags: ["felt_instead"])
+                    effects: ChoiceEffects(trust: 10, awareness: 10, setFlags: ["felt_instead"])
                 )
             ]
         ),
@@ -653,12 +653,12 @@ struct Blocks21to30 {
                 Choice(
                     id: "25_4_a",
                     text: "Try to hold all of it. Stay complete.",
-                    effects: ChoiceEffects(awareness: 20, fear: 10, setFlags: ["tried_complete"])
+                    effects: ChoiceEffects(fear: 10, awareness: 20, setFlags: ["tried_complete"])
                 ),
                 Choice(
                     id: "25_4_b",
                     text: "Let it go. Keep only what matters.",
-                    effects: ChoiceEffects(awareness: 10, control: 10, setFlags: ["kept_essential"])
+                    effects: ChoiceEffects(control: 10, awareness: 10, setFlags: ["kept_essential"])
                 ),
                 Choice(
                     id: "25_4_c",
@@ -792,7 +792,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "26_4_b",
                     text: "Resent the routine. Fight against it.",
-                    effects: ChoiceEffects(control: 10, trust: -10, setFlags: ["resented_routine"])
+                    effects: ChoiceEffects(trust: -10, control: 10, setFlags: ["resented_routine"])
                 ),
                 Choice(
                     id: "26_4_c",
@@ -832,7 +832,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "27_1_c",
                     text: "'I'm in. What do you need?'",
-                    effects: ChoiceEffects(control: 10, trust: -5, setFlags: ["committed_plan"])
+                    effects: ChoiceEffects(trust: -5, control: 10, setFlags: ["committed_plan"])
                 ),
                 Choice(
                     id: "27_1_d",
@@ -865,12 +865,12 @@ struct Blocks21to30 {
                 Choice(
                     id: "27_2_c",
                     text: "'I saw the center during the convergence. I can guide us.'",
-                    effects: ChoiceEffects(awareness: 15, control: 10, setFlags: ["offered_guide"])
+                    effects: ChoiceEffects(control: 10, awareness: 15, setFlags: ["offered_guide"])
                 ),
                 Choice(
                     id: "27_2_d",
                     text: "'This is insane. You can't negotiate with entropy.'",
-                    effects: ChoiceEffects(control: 10, trust: 5, setFlags: ["voiced_doubt"])
+                    effects: ChoiceEffects(trust: 5, control: 10, setFlags: ["voiced_doubt"])
                 )
             ]
         ),
@@ -898,7 +898,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "27_3_c",
                     text: "'Find someone else. I've given enough.'",
-                    effects: ChoiceEffects(control: 10, trust: 5, setFlags: ["refused_bridge"])
+                    effects: ChoiceEffects(trust: 5, control: 10, setFlags: ["refused_bridge"])
                 ),
                 Choice(
                     id: "27_3_d",
@@ -921,12 +921,12 @@ struct Blocks21to30 {
                 Choice(
                     id: "27_4_a",
                     text: "Accept the transformation. Agree to be the bridge.",
-                    effects: ChoiceEffects(awareness: 20, trust: 10, setFlags: ["accepted_transformation"])
+                    effects: ChoiceEffects(trust: 10, awareness: 20, setFlags: ["accepted_transformation"])
                 ),
                 Choice(
                     id: "27_4_b",
                     text: "Refuse. The risk is too great.",
-                    effects: ChoiceEffects(control: 15, trust: 5, setFlags: ["refused_transformation"])
+                    effects: ChoiceEffects(trust: 5, control: 15, setFlags: ["refused_transformation"])
                 ),
                 Choice(
                     id: "27_4_c",
@@ -961,7 +961,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "28_1_b",
                     text: "Prepare backup plans. Account for failure.",
-                    effects: ChoiceEffects(awareness: 10, control: 10, setFlags: ["prepared_backup"])
+                    effects: ChoiceEffects(control: 10, awareness: 10, setFlags: ["prepared_backup"])
                 ),
                 Choice(
                     id: "28_1_c",
@@ -971,7 +971,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "28_1_d",
                     text: "Question the plan. Look for flaws.",
-                    effects: ChoiceEffects(awareness: 10, trust: -5, setFlags: ["questioned_plan"])
+                    effects: ChoiceEffects(trust: -5, awareness: 10, setFlags: ["questioned_plan"])
                 )
             ]
         ),
@@ -1004,7 +1004,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "28_2_d",
                     text: "Use the tears. Let them fuel what comes next.",
-                    effects: ChoiceEffects(awareness: 10, control: 10, setFlags: ["used_tears"])
+                    effects: ChoiceEffects(control: 10, awareness: 10, setFlags: ["used_tears"])
                 )
             ]
         ),
@@ -1037,7 +1037,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "28_3_d",
                     text: "Resist the pull. Stay outside it.",
-                    effects: ChoiceEffects(control: 15, trust: -5, setFlags: ["resisted_final_pull"])
+                    effects: ChoiceEffects(trust: -5, control: 15, setFlags: ["resisted_final_pull"])
                 )
             ]
         ),
@@ -1060,7 +1060,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "28_4_b",
                     text: "Stop. Question if this is right.",
-                    effects: ChoiceEffects(awareness: 10, control: 5, setFlags: ["stopped_center"])
+                    effects: ChoiceEffects(control: 5, awareness: 10, setFlags: ["stopped_center"])
                 ),
                 Choice(
                     id: "28_4_c",
@@ -1100,7 +1100,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "29_1_c",
                     text: "Try to stop them. Physically.",
-                    effects: ChoiceEffects(control: 15, trust: -10, setFlags: ["tried_stop_source"])
+                    effects: ChoiceEffects(trust: -10, control: 15, setFlags: ["tried_stop_source"])
                 ),
                 Choice(
                     id: "29_1_d",
@@ -1189,7 +1189,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "29_4_a",
                     text: "'Yes. Risk is what makes us real.'",
-                    effects: ChoiceEffects(awareness: 20, control: 10, setFlags: ["accepted_risk"])
+                    effects: ChoiceEffects(control: 10, awareness: 20, setFlags: ["accepted_risk"])
                 ),
                 Choice(
                     id: "29_4_b",
@@ -1224,7 +1224,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "30_1_a",
                     text: "Take their hand. Complete the transformation.",
-                    effects: ChoiceEffects(awareness: 25, trust: 15, setFlags: ["took_hand"])
+                    effects: ChoiceEffects(trust: 15, awareness: 25, setFlags: ["took_hand"])
                 ),
                 Choice(
                     id: "30_1_b",
@@ -1234,12 +1234,12 @@ struct Blocks21to30 {
                 Choice(
                     id: "30_1_c",
                     text: "Take their hand but hold back. Give only part of yourself.",
-                    effects: ChoiceEffects(awareness: 15, control: 10, setFlags: ["partial_hand"])
+                    effects: ChoiceEffects(control: 10, awareness: 15, setFlags: ["partial_hand"])
                 ),
                 Choice(
                     id: "30_1_d",
                     text: "Refuse. Turn back. Choose to remain limited.",
-                    effects: ChoiceEffects(control: 15, trust: -10, setFlags: ["refused_hand"])
+                    effects: ChoiceEffects(trust: -10, control: 15, setFlags: ["refused_hand"])
                 )
             ]
         ),
@@ -1328,7 +1328,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "30_4_b",
                     text: "Let them be. They don't need you anymore.",
-                    effects: ChoiceEffects(control: 10, trust: 10, setFlags: ["let_be"])
+                    effects: ChoiceEffects(trust: 10, control: 10, setFlags: ["let_be"])
                 ),
                 Choice(
                     id: "30_4_c",

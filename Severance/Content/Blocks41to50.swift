@@ -15,7 +15,7 @@ struct Blocks41to50 {
             ],
             choices: [
                 Choice(id: "41_1_a", text: "Explore the new state. Learn its rules.", effects: ChoiceEffects(awareness: 15, setFlags: ["explored_beyond"])),
-                Choice(id: "41_1_b", text: "Look back. See what you left behind.", effects: ChoiceEffects(awareness: 10, trust: 5, setFlags: ["looked_back_final"])),
+                Choice(id: "41_1_b", text: "Look back. See what you left behind.", effects: ChoiceEffects(trust: 5, awareness: 10, setFlags: ["looked_back_final"])),
                 Choice(id: "41_1_c", text: "Reach for others who crossed. Find companions.", effects: ChoiceEffects(trust: 15, setFlags: ["found_companions"])),
                 Choice(id: "41_1_d", text: "Rest. You've done enough.", effects: ChoiceEffects(trust: 10, control: -5, setFlags: ["rested_beyond"]))
             ]
@@ -32,7 +32,7 @@ struct Blocks41to50 {
             choices: [
                 Choice(id: "41_2_a", text: "Contribute to what's being built.", effects: ChoiceEffects(trust: 15, setFlags: ["contributed_building"])),
                 Choice(id: "41_2_b", text: "Observe first. Understand the architecture.", effects: ChoiceEffects(awareness: 15, setFlags: ["observed_architecture"])),
-                Choice(id: "41_2_c", text: "Find your place. Where do you fit?", effects: ChoiceEffects(awareness: 10, control: 5, setFlags: ["found_place"])),
+                Choice(id: "41_2_c", text: "Find your place. Where do you fit?", effects: ChoiceEffects(control: 5, awareness: 10, setFlags: ["found_place"])),
                 Choice(id: "41_2_d", text: "Create something new. Add your vision.", effects: ChoiceEffects(control: 15, setFlags: ["created_vision"]))
             ]
         ),
@@ -64,7 +64,7 @@ struct Blocks41to50 {
             choices: [
                 Choice(id: "41_4_a", text: "Focus on beauty. Let it fill you.", effects: ChoiceEffects(trust: 20, setFlags: ["focused_beauty"])),
                 Choice(id: "41_4_b", text: "Acknowledge the terror. It's part of the truth.", effects: ChoiceEffects(awareness: 20, setFlags: ["acknowledged_terror"])),
-                Choice(id: "41_4_c", text: "Hold both. That's the only honest response.", effects: ChoiceEffects(awareness: 15, trust: 15, setFlags: ["held_both_final"])),
+                Choice(id: "41_4_c", text: "Hold both. That's the only honest response.", effects: ChoiceEffects(trust: 15, awareness: 15, setFlags: ["held_both_final"])),
                 Choice(id: "41_4_d", text: "Let categories dissolve. Beauty and terror are old words.", effects: ChoiceEffects(awareness: 20, setFlags: ["dissolved_categories"]))
             ]
         ),
@@ -114,7 +114,7 @@ struct Blocks41to50 {
                 Choice(id: "42_3_a", text: "Accept the paradox. Causality loops.", effects: ChoiceEffects(awareness: 20, setFlags: ["accepted_paradox"])),
                 Choice(id: "42_3_b", text: "Focus on the building. Theory can wait.", effects: ChoiceEffects(control: 15, setFlags: ["focused_building"])),
                 Choice(id: "42_3_c", text: "Ask what the next thing is.", effects: ChoiceEffects(awareness: 15, setFlags: ["asked_next"])),
-                Choice(id: "42_3_d", text: "Contribute your understanding. Add to it.", effects: ChoiceEffects(awareness: 15, trust: 10, setFlags: ["contributed_understanding"]))
+                Choice(id: "42_3_d", text: "Contribute your understanding. Add to it.", effects: ChoiceEffects(trust: 10, awareness: 15, setFlags: ["contributed_understanding"]))
             ]
         ),
 
@@ -127,7 +127,7 @@ struct Blocks41to50 {
                 "The network began as severance. It becomes connection. Connection to everything."
             ],
             choices: [
-                Choice(id: "42_4_a", text: "Help open the door.", effects: ChoiceEffects(awareness: 20, trust: 15, setFlags: ["opened_door"])),
+                Choice(id: "42_4_a", text: "Help open the door.", effects: ChoiceEffects(trust: 15, awareness: 20, setFlags: ["opened_door"])),
                 Choice(id: "42_4_b", text: "Stand at the threshold. Be a guide.", effects: ChoiceEffects(trust: 15, awareness: 10, setFlags: ["became_guide"])),
                 Choice(id: "42_4_c", text: "Step through again. See what's beyond.", effects: ChoiceEffects(awareness: 25, setFlags: ["stepped_further"])),
                 Choice(id: "42_4_d", text: "Tend what exists. Growth can be slow.", effects: ChoiceEffects(trust: 15, control: 10, setFlags: ["tended_growth"]))
@@ -161,9 +161,9 @@ struct Blocks41to50 {
             ],
             choices: [
                 Choice(id: "43_2_a", text: "Find peace in this arc.", effects: ChoiceEffects(trust: 20, setFlags: ["found_arc_peace"])),
-                Choice(id: "43_2_b", text: "Mourn what was lost to get here.", effects: ChoiceEffects(awareness: 10, trust: 10, setFlags: ["mourned_loss"])),
+                Choice(id: "43_2_b", text: "Mourn what was lost to get here.", effects: ChoiceEffects(trust: 10, awareness: 10, setFlags: ["mourned_loss"])),
                 Choice(id: "43_2_c", text: "Question if the arc justifies the cost.", effects: ChoiceEffects(awareness: 15, setFlags: ["questioned_arc"])),
-                Choice(id: "43_2_d", text: "Accept both peace and mourning. They're not opposites.", effects: ChoiceEffects(awareness: 15, trust: 15, setFlags: ["accepted_both_grief"]))
+                Choice(id: "43_2_d", text: "Accept both peace and mourning. They're not opposites.", effects: ChoiceEffects(trust: 15, awareness: 15, setFlags: ["accepted_both_grief"]))
             ]
         ),
 
@@ -276,7 +276,7 @@ struct Blocks41to50 {
             choices: [
                 Choice(id: "45_1_a", text: "Expand. Feel everything at once.", effects: ChoiceEffects(awareness: 20, setFlags: ["expanded_final"])),
                 Choice(id: "45_1_b", text: "Contract. Feel yourself distinctly.", effects: ChoiceEffects(control: 15, setFlags: ["contracted_final"])),
-                Choice(id: "45_1_c", text: "Find the rhythm. Breathe with it.", effects: ChoiceEffects(awareness: 15, trust: 10, setFlags: ["found_rhythm"])),
+                Choice(id: "45_1_c", text: "Find the rhythm. Breathe with it.", effects: ChoiceEffects(trust: 10, awareness: 15, setFlags: ["found_rhythm"])),
                 Choice(id: "45_1_d", text: "Let it move you. No need to choose.", effects: ChoiceEffects(trust: 20, setFlags: ["let_rhythm"]))
             ]
         ),
@@ -322,7 +322,7 @@ struct Blocks41to50 {
                 "This is what the severance became. What division transformed into."
             ],
             choices: [
-                Choice(id: "45_4_a", text: "Create something beautiful.", effects: ChoiceEffects(awareness: 15, trust: 15, setFlags: ["created_beautiful"])),
+                Choice(id: "45_4_a", text: "Create something beautiful.", effects: ChoiceEffects(trust: 15, awareness: 15, setFlags: ["created_beautiful"])),
                 Choice(id: "45_4_b", text: "Create something true.", effects: ChoiceEffects(awareness: 20, setFlags: ["created_true"])),
                 Choice(id: "45_4_c", text: "Create something kind.", effects: ChoiceEffects(trust: 20, setFlags: ["created_kind"])),
                 Choice(id: "45_4_d", text: "Create together. Let it emerge from the collective.", effects: ChoiceEffects(trust: 15, awareness: 15, setFlags: ["created_together"]))
@@ -341,7 +341,7 @@ struct Blocks41to50 {
             choices: [
                 Choice(id: "46_1_a", text: "Add your voice to the chorus.", effects: ChoiceEffects(trust: 20, setFlags: ["joined_chorus"])),
                 Choice(id: "46_1_b", text: "Listen to what it says.", effects: ChoiceEffects(awareness: 15, setFlags: ["listened_chorus"])),
-                Choice(id: "46_1_c", text: "Help amplify it. Make it reach further.", effects: ChoiceEffects(awareness: 10, trust: 15, setFlags: ["amplified_chorus"])),
+                Choice(id: "46_1_c", text: "Help amplify it. Make it reach further.", effects: ChoiceEffects(trust: 15, awareness: 10, setFlags: ["amplified_chorus"])),
                 Choice(id: "46_1_d", text: "Marvel at it. Sometimes that's enough.", effects: ChoiceEffects(trust: 15, setFlags: ["marveled_chorus"]))
             ]
         ),
@@ -373,8 +373,8 @@ struct Blocks41to50 {
             choices: [
                 Choice(id: "46_3_a", text: "Let the gratitude fill you.", effects: ChoiceEffects(trust: 20, setFlags: ["full_gratitude"])),
                 Choice(id: "46_3_b", text: "Express it. Let others feel it too.", effects: ChoiceEffects(trust: 15, awareness: 10, setFlags: ["expressed_gratitude"])),
-                Choice(id: "46_3_c", text: "Hold it quietly. Some things are private.", effects: ChoiceEffects(control: 10, trust: 10, setFlags: ["private_gratitude"])),
-                Choice(id: "46_3_d", text: "Transform it into action. Gratitude should move.", effects: ChoiceEffects(awareness: 10, trust: 15, setFlags: ["active_gratitude"]))
+                Choice(id: "46_3_c", text: "Hold it quietly. Some things are private.", effects: ChoiceEffects(trust: 10, control: 10, setFlags: ["private_gratitude"])),
+                Choice(id: "46_3_d", text: "Transform it into action. Gratitude should move.", effects: ChoiceEffects(trust: 15, awareness: 10, setFlags: ["active_gratitude"]))
             ]
         ),
 
@@ -438,8 +438,8 @@ struct Blocks41to50 {
             choices: [
                 Choice(id: "47_3_a", text: "Emphasize truth in your legacy.", effects: ChoiceEffects(awareness: 20, setFlags: ["legacy_truth"])),
                 Choice(id: "47_3_b", text: "Emphasize compassion in your legacy.", effects: ChoiceEffects(trust: 20, setFlags: ["legacy_compassion"])),
-                Choice(id: "47_3_c", text: "Emphasize curiosity in your legacy.", effects: ChoiceEffects(awareness: 15, control: 10, setFlags: ["legacy_curiosity"])),
-                Choice(id: "47_3_d", text: "Balance all three. They need each other.", effects: ChoiceEffects(awareness: 15, trust: 15, setFlags: ["legacy_balance"]))
+                Choice(id: "47_3_c", text: "Emphasize curiosity in your legacy.", effects: ChoiceEffects(control: 10, awareness: 15, setFlags: ["legacy_curiosity"])),
+                Choice(id: "47_3_d", text: "Balance all three. They need each other.", effects: ChoiceEffects(trust: 15, awareness: 15, setFlags: ["legacy_balance"]))
             ]
         ),
 
@@ -485,9 +485,9 @@ struct Blocks41to50 {
                 "You are love that learned to remember."
             ],
             choices: [
-                Choice(id: "48_2_a", text: "Remember everything. Hold nothing back.", effects: ChoiceEffects(awareness: 20, trust: 15, setFlags: ["remembered_everything"])),
-                Choice(id: "48_2_b", text: "Remember selectively. Some things can rest.", effects: ChoiceEffects(control: 15, trust: 10, setFlags: ["remembered_selective"])),
-                Choice(id: "48_2_c", text: "Remember forward. The future needs this too.", effects: ChoiceEffects(awareness: 15, trust: 15, setFlags: ["remembered_forward"])),
+                Choice(id: "48_2_a", text: "Remember everything. Hold nothing back.", effects: ChoiceEffects(trust: 15, awareness: 20, setFlags: ["remembered_everything"])),
+                Choice(id: "48_2_b", text: "Remember selectively. Some things can rest.", effects: ChoiceEffects(trust: 10, control: 15, setFlags: ["remembered_selective"])),
+                Choice(id: "48_2_c", text: "Remember forward. The future needs this too.", effects: ChoiceEffects(trust: 15, awareness: 15, setFlags: ["remembered_forward"])),
                 Choice(id: "48_2_d", text: "Simply remember. Let the memories choose themselves.", effects: ChoiceEffects(trust: 20, setFlags: ["simply_remembered"]))
             ]
         ),
@@ -503,7 +503,7 @@ struct Blocks41to50 {
             choices: [
                 Choice(id: "48_3_a", text: "Admire the tapestry.", effects: ChoiceEffects(trust: 15, awareness: 10, setFlags: ["admired_tapestry"])),
                 Choice(id: "48_3_b", text: "Add a final thread.", effects: ChoiceEffects(awareness: 15, setFlags: ["added_thread"])),
-                Choice(id: "48_3_c", text: "See how it connects to others.", effects: ChoiceEffects(awareness: 15, trust: 10, setFlags: ["saw_connections"])),
+                Choice(id: "48_3_c", text: "See how it connects to others.", effects: ChoiceEffects(trust: 10, awareness: 15, setFlags: ["saw_connections"])),
                 Choice(id: "48_3_d", text: "Let it speak for itself.", effects: ChoiceEffects(trust: 15, setFlags: ["let_speak"]))
             ]
         ),
@@ -519,7 +519,7 @@ struct Blocks41to50 {
             choices: [
                 Choice(id: "48_4_a", text: "Accept the thanks.", effects: ChoiceEffects(trust: 20, setFlags: ["accepted_thanks"])),
                 Choice(id: "48_4_b", text: "Give thanks in return.", effects: ChoiceEffects(trust: 15, awareness: 10, setFlags: ["returned_thanks"])),
-                Choice(id: "48_4_c", text: "Feel unworthy but take it anyway.", effects: ChoiceEffects(awareness: 10, trust: 15, setFlags: ["humble_thanks"])),
+                Choice(id: "48_4_c", text: "Feel unworthy but take it anyway.", effects: ChoiceEffects(trust: 15, awareness: 10, setFlags: ["humble_thanks"])),
                 Choice(id: "48_4_d", text: "Let the thanks become gratitude.", effects: ChoiceEffects(trust: 20, setFlags: ["thanks_to_gratitude"]))
             ]
         ),
@@ -616,8 +616,8 @@ struct Blocks41to50 {
             ],
             choices: [
                 Choice(id: "50_2_a", text: "Rest in completion.", effects: ChoiceEffects(trust: 30, setFlags: ["rested_completion"])),
-                Choice(id: "50_2_b", text: "Begin again from completion.", effects: ChoiceEffects(awareness: 20, trust: 15, setFlags: ["began_again"])),
-                Choice(id: "50_2_c", text: "Hold completion and incompletion together.", effects: ChoiceEffects(awareness: 20, trust: 15, setFlags: ["held_completion"])),
+                Choice(id: "50_2_b", text: "Begin again from completion.", effects: ChoiceEffects(trust: 15, awareness: 20, setFlags: ["began_again"])),
+                Choice(id: "50_2_c", text: "Hold completion and incompletion together.", effects: ChoiceEffects(trust: 15, awareness: 20, setFlags: ["held_completion"])),
                 Choice(id: "50_2_d", text: "Let completion be what it is.", effects: ChoiceEffects(trust: 25, setFlags: ["let_completion"]))
             ]
         ),
