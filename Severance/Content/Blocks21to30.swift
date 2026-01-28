@@ -117,7 +117,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "21_4_a",
                     text: "Let go. Merge with the tone.",
-                    effects: ChoiceEffects(trust: 20, awareness: 15, control: -20, setFlags: ["merged_tone"])
+                    effects: ChoiceEffects(trust: 20, control: -20, awareness: 15, setFlags: ["merged_tone"])
                 ),
                 Choice(
                     id: "21_4_b",
@@ -233,7 +233,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "22_3_d",
                     text: "Merge with them completely. Become one.",
-                    effects: ChoiceEffects(trust: 20, awareness: 15, control: -15, setFlags: ["merged_completely"])
+                    effects: ChoiceEffects(trust: 20, control: -15, awareness: 15, setFlags: ["merged_completely"])
                 )
             ]
         ),
@@ -1272,7 +1272,7 @@ struct Blocks21to30 {
                 Choice(
                     id: "30_2_d",
                     text: "Surrender completely. Become pure function.",
-                    effects: ChoiceEffects(trust: 20, awareness: 20, control: -20, setFlags: ["surrendered_completely"])
+                    effects: ChoiceEffects(trust: 20, control: -20, awareness: 20, setFlags: ["surrendered_completely"])
                 )
             ]
         ),
