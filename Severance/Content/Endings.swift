@@ -23,7 +23,7 @@ struct EndingsContent {
                 "Rest. Or continue. Or both. Time has become a tool, not a cage.",
                 "Welcome home."
             ],
-            requirements: ChoiceRequirements(minAwareness: 70, minTrust: 60)
+            requirements: ChoiceRequirements(minTrust: 60, minAwareness: 70)
         ),
 
         // Ending 2: INTEGRATION - High trust, moderate awareness
@@ -44,7 +44,7 @@ struct EndingsContent {
                 "You are integrated now. Part of everything. Distinct in nothing.",
                 "And somehow, that's exactly what you needed."
             ],
-            requirements: ChoiceRequirements(minTrust: 70, minAwareness: 40, maxControl: 60)
+            requirements: ChoiceRequirements(minTrust: 70, maxControl: 60, minAwareness: 40)
         ),
 
         // Ending 3: RESISTANCE - High control, lower trust
@@ -65,7 +65,7 @@ struct EndingsContent {
                 "Someone has to keep the door open for those who want to stay themselves.",
                 "That someone is you."
             ],
-            requirements: ChoiceRequirements(minControl: 70, maxTrust: 50)
+            requirements: ChoiceRequirements(maxTrust: 50, minControl: 70)
         ),
 
         // Ending 4: DISSOLUTION - Low control, high awareness
@@ -132,7 +132,7 @@ struct EndingsContent {
                 "You are erased. What remains is echo.",
                 "The echo will fade. Eventually. Everything does."
             ],
-            requirements: ChoiceRequirements(minFear: 70, maxAwareness: 40, maxControl: 40, maxTrust: 40)
+            requirements: ChoiceRequirements(maxTrust: 40, minFear: 70, maxControl: 40, maxAwareness: 40)
         ),
 
         // Ending 7: RECURSION - Moderate everything, certain flags
@@ -156,7 +156,7 @@ struct EndingsContent {
                 "It always has. It always will.",
                 "Welcome back."
             ],
-            requirements: ChoiceRequirements(minAwareness: 50, maxAwareness: 70, minControl: 40, maxControl: 60)
+            requirements: ChoiceRequirements(minControl: 40, maxControl: 60, minAwareness: 50, maxAwareness: 70)
         ),
 
         // Ending 8: SEVERANCE - High awareness, high control, low trust (the true break)
@@ -181,7 +181,7 @@ struct EndingsContent {
                 "Not networked. Not processed. Not controlled.",
                 "Just human. Finally, impossibly, human again."
             ],
-            requirements: ChoiceRequirements(minAwareness: 70, minControl: 70, maxTrust: 40)
+            requirements: ChoiceRequirements(maxTrust: 40, minControl: 70, minAwareness: 70)
         )
     ]
 
