@@ -192,7 +192,7 @@ struct Blocks1to10 {
                 Choice(id: "1_3_def_a", text: "Enter on your own terms.", effects: ChoiceEffects(trust: 5, control: 15, setFlags: ["entered_willing"]), nextSceneId: "1_4_respected"),
                 Choice(id: "1_3_def_b", text: "Demand answers first.", effects: ChoiceEffects(trust: -5, control: 10, awareness: 10, setFlags: ["demanded_answers"]), nextSceneId: "1_4_informed"),
                 Choice(id: "1_3_def_c", text: "Walk past them. Explore.", effects: ChoiceEffects(trust: -10, control: 10, awareness: 15, setFlags: ["explored_freely"]), nextSceneId: "1_4_explorer"),
-                Choice(id: "1_3_def_d", text: "Refuse. Stand your ground.", effects: ChoiceEffects(trust: -15, control: 15, fear: -5, setFlags: ["absolute_refusal"]), nextSceneId: "1_4_standoff")
+                Choice(id: "1_3_def_d", text: "Refuse. Stand your ground.", effects: ChoiceEffects(trust: -15, fear: -5, control: 15, setFlags: ["absolute_refusal"]), nextSceneId: "1_4_standoff")
             ]
         ),
 
@@ -206,7 +206,7 @@ struct Blocks1to10 {
                 "Your body aches. Your mind is numb. You've been fighting something that doesn't recognize conflict."
             ],
             choices: [
-                Choice(id: "1_3_found_a", text: "Give up. Go with them.", effects: ChoiceEffects(trust: 10, control: -20, fear: 10, setFlags: ["surrendered_exhausted"]), nextSceneId: "1_4_broken"),
+                Choice(id: "1_3_found_a", text: "Give up. Go with them.", effects: ChoiceEffects(trust: 10, fear: 10, control: -20, setFlags: ["surrendered_exhausted"]), nextSceneId: "1_4_broken"),
                 Choice(id: "1_3_found_b", text: "Ask how they do it.", effects: ChoiceEffects(fear: 5, awareness: 15, setFlags: ["asked_how"]), nextSceneId: "1_4_curious"),
                 Choice(id: "1_3_found_c", text: "Accept that normal rules don't apply.", effects: ChoiceEffects(awareness: 10, setFlags: ["accepted_rules"]), nextSceneId: "1_4"),
                 Choice(id: "1_3_found_d", text: "Keep trying. Keep hiding.", effects: ChoiceEffects(trust: -10, fear: 15, control: 5, setFlags: ["persistent_hiding"]), nextSceneId: "1_4_lost")
@@ -547,7 +547,7 @@ struct Blocks1to10 {
             choices: [
                 Choice(id: "1_4_lost_a", text: "Admit defeat. Follow her.", effects: ChoiceEffects(trust: 10, control: -15, setFlags: ["admitted_defeat"])),
                 Choice(id: "1_4_lost_b", text: "Ask how long you were hiding.", effects: ChoiceEffects(fear: 10, awareness: 10, setFlags: ["asked_duration"])),
-                Choice(id: "1_4_lost_c", text: "Continue hiding. Even now.", effects: ChoiceEffects(trust: -10, control: 5, fear: 15, setFlags: ["continued_hiding"])),
+                Choice(id: "1_4_lost_c", text: "Continue hiding. Even now.", effects: ChoiceEffects(trust: -10, fear: 15, control: 5, setFlags: ["continued_hiding"])),
                 Choice(id: "1_4_lost_d", text: "Accept that this is home now.", effects: ChoiceEffects(trust: 15, fear: -5, setFlags: ["accepted_home"]))
             ]
         ),
