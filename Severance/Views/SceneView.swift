@@ -75,7 +75,7 @@ struct SceneView: View {
 
     private func animateParagraphs(_ paragraphs: [String]) {
         guard currentParagraphIndex < paragraphs.count else {
-            withAnimation(.easeIn(duration: 0.8)) {
+            withAnimation(.easeIn(duration: 1.2)) {
                 choicesOpacity = 1.0
             }
             return
@@ -83,13 +83,14 @@ struct SceneView: View {
 
         displayedParagraphs.append(paragraphs[currentParagraphIndex])
 
-        withAnimation(.easeIn(duration: 0.6)) {
+        withAnimation(.easeIn(duration: 1.5)) {
             textOpacity = 1.0
         }
 
         currentParagraphIndex += 1
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+        // Slower reveal - 2.5 seconds between paragraphs
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             animateParagraphs(paragraphs)
         }
     }

@@ -19,27 +19,99 @@ struct Blocks1to10 {
                 Choice(
                     id: "1_1_a",
                     text: "Call the number back.",
-                    effects: ChoiceEffects(trust: 5, awareness: -5, setFlags: ["called_back"])
+                    effects: ChoiceEffects(trust: 5, awareness: -5, setFlags: ["called_back"]),
+                    nextSceneId: "1_2_compliant"
                 ),
                 Choice(
                     id: "1_1_b",
                     text: "Ignore it. Read the letter again, looking for details you missed.",
-                    effects: ChoiceEffects(control: 5, awareness: 10, setFlags: ["studied_letter"])
+                    effects: ChoiceEffects(control: 5, awareness: 10, setFlags: ["studied_letter"]),
+                    nextSceneId: "1_2_curious"
                 ),
                 Choice(
                     id: "1_1_c",
                     text: "Burn the letter.",
-                    effects: ChoiceEffects(fear: 10, control: -10, setFlags: ["burned_letter"])
+                    effects: ChoiceEffects(fear: 10, control: -10, setFlags: ["burned_letter"]),
+                    nextSceneId: "1_2_resistant"
                 ),
                 Choice(
                     id: "1_1_d",
                     text: "Pack a bag. You've learned not to ask questions.",
-                    effects: ChoiceEffects(trust: 10, fear: -5, control: 10, setFlags: ["immediate_compliance"])
+                    effects: ChoiceEffects(trust: 10, fear: -5, control: 10, setFlags: ["immediate_compliance"]),
+                    nextSceneId: "1_2_obedient"
                 )
             ]
         ),
 
-        // Block 1, Scene 2
+        // Block 1, Scene 2 - COMPLIANT PATH (called back)
+        GameScene(
+            id: "1_2_compliant",
+            paragraphs: [
+                "The line connects before the first ring finishes. A voice speaks your employee number. You didn't know you had one.",
+                "'Transportation has been arranged. Be outside in four minutes.'",
+                "The call ends. At exactly four minutes, a black car appears. No plates. Tinted windows.",
+                "The driver doesn't speak. The seat is warm, as if someone just left it. The facility appears from nowhere."
+            ],
+            choices: [
+                Choice(id: "1_2_comp_a", text: "Ask the driver where you're going.", effects: ChoiceEffects(trust: -5, awareness: 5, setFlags: ["asked_driver"]), nextSceneId: "1_3"),
+                Choice(id: "1_2_comp_b", text: "Stay silent. Watch the route.", effects: ChoiceEffects(control: 10, awareness: 10, setFlags: ["memorized_route"]), nextSceneId: "1_3"),
+                Choice(id: "1_2_comp_c", text: "Close your eyes. Whatever happens, happens.", effects: ChoiceEffects(trust: 15, fear: -5, setFlags: ["surrendered"]), nextSceneId: "1_3"),
+                Choice(id: "1_2_comp_d", text: "Test the door handle. Just to see.", effects: ChoiceEffects(fear: 10, control: 5, setFlags: ["tested_escape"]), nextSceneId: "1_3_locked")
+            ]
+        ),
+
+        // Block 1, Scene 2 - CURIOUS PATH (studied letter)
+        GameScene(
+            id: "1_2_curious",
+            paragraphs: [
+                "The words shift when you're not looking directly. The address changes—street number, then coordinates, then a frequency.",
+                "There's a watermark you missed. A spiral winding inward, getting smaller without reaching a center.",
+                "The paper is warm. Too warm. Outside your window, a car has appeared. It wasn't there a moment ago.",
+                "You understand: the letter found you, not the other way around."
+            ],
+            choices: [
+                Choice(id: "1_2_cur_a", text: "Take the letter with you. It might reveal more.", effects: ChoiceEffects(awareness: 15, setFlags: ["kept_letter"]), nextSceneId: "1_3"),
+                Choice(id: "1_2_cur_b", text: "Photograph the letter, leave the original.", effects: ChoiceEffects(control: 10, awareness: 5, setFlags: ["photographed"]), nextSceneId: "1_3"),
+                Choice(id: "1_2_cur_c", text: "Search your apartment for other anomalies.", effects: ChoiceEffects(fear: 5, awareness: 15, setFlags: ["searched"]), nextSceneId: "1_3_delayed"),
+                Choice(id: "1_2_cur_d", text: "Go to the car. You have questions now.", effects: ChoiceEffects(trust: 5, awareness: 10, setFlags: ["eager"]), nextSceneId: "1_3")
+            ]
+        ),
+
+        // Block 1, Scene 2 - RESISTANT PATH (burned letter)
+        GameScene(
+            id: "1_2_resistant",
+            paragraphs: [
+                "The flames are the wrong color. Blue at the edges, then white, then something your eyes can't name.",
+                "The smoke pools around your feet like fog. When you breathe it in, you taste metal and memory.",
+                "The letter is gone, but the words remain—burned into your vision. Every time you blink, you read your assignment.",
+                "Outside, footsteps. They're not rushing. They don't need to."
+            ],
+            choices: [
+                Choice(id: "1_2_res_a", text: "Run. There might still be a way out.", effects: ChoiceEffects(fear: 15, control: 5, setFlags: ["fled"]), nextSceneId: "1_3_caught"),
+                Choice(id: "1_2_res_b", text: "Open the door before they knock. Face this.", effects: ChoiceEffects(fear: -5, control: 10, setFlags: ["faced_them"]), nextSceneId: "1_3_defiant"),
+                Choice(id: "1_2_res_c", text: "Hide. They can't take what they can't find.", effects: ChoiceEffects(fear: 10, control: -5, setFlags: ["hid"]), nextSceneId: "1_3_found"),
+                Choice(id: "1_2_res_d", text: "Call someone. Leave evidence you existed.", effects: ChoiceEffects(fear: 5, awareness: 10, setFlags: ["called_witness"]), nextSceneId: "1_3_witnessed")
+            ]
+        ),
+
+        // Block 1, Scene 2 - OBEDIENT PATH (packed immediately)
+        GameScene(
+            id: "1_2_obedient",
+            paragraphs: [
+                "You pack light. Toothbrush. Change of clothes. The photo of someone you used to know.",
+                "The facility is smaller than expected. Concrete at the edge of an industrial park. No signs. No windows.",
+                "A woman waits at the entrance. She wears grey. Her badge has no photo, just a barcode.",
+                "'Prompt,' she says. It sounds like approval. 'Follow me.'"
+            ],
+            choices: [
+                Choice(id: "1_2_obe_a", text: "Thank her for the acknowledgment.", effects: ChoiceEffects(trust: 15, setFlags: ["thanked"]), nextSceneId: "1_3"),
+                Choice(id: "1_2_obe_b", text: "Ask what happens to people who aren't prompt.", effects: ChoiceEffects(fear: 5, awareness: 10, setFlags: ["asked_consequences"]), nextSceneId: "1_3"),
+                Choice(id: "1_2_obe_c", text: "Follow silently. Match her pace.", effects: ChoiceEffects(control: 10, setFlags: ["matched_pace"]), nextSceneId: "1_3"),
+                Choice(id: "1_2_obe_d", text: "Look back at the outside. One last time.", effects: ChoiceEffects(fear: 5, awareness: 5, setFlags: ["looked_back"]), nextSceneId: "1_3_reluctant")
+            ]
+        ),
+
+        // Block 1, Scene 2 - DEFAULT (fallback)
         GameScene(
             id: "1_2",
             paragraphs: [
@@ -49,26 +121,129 @@ struct Blocks1to10 {
                 "The hallway inside is too long for the building's exterior. You count your steps. Lose track around forty."
             ],
             choices: [
-                Choice(
-                    id: "1_2_a",
-                    text: "Ask her name.",
-                    effects: ChoiceEffects(trust: -5, awareness: 5, setFlags: ["asked_name"])
-                ),
-                Choice(
-                    id: "1_2_b",
-                    text: "Apologize for being late.",
-                    effects: ChoiceEffects(trust: 10, control: -5, setFlags: ["apologized"])
-                ),
-                Choice(
-                    id: "1_2_c",
-                    text: "Count the doors you pass. Remember them.",
-                    effects: ChoiceEffects(fear: 5, awareness: 10, setFlags: ["counted_doors"])
-                ),
-                Choice(
-                    id: "1_2_d",
-                    text: "Say nothing. Match her pace exactly.",
-                    effects: ChoiceEffects(control: 10, setFlags: ["matched_pace"])
-                )
+                Choice(id: "1_2_a", text: "Ask her name.", effects: ChoiceEffects(trust: -5, awareness: 5, setFlags: ["asked_name"]), nextSceneId: "1_3"),
+                Choice(id: "1_2_b", text: "Apologize for being late.", effects: ChoiceEffects(trust: 10, control: -5, setFlags: ["apologized"]), nextSceneId: "1_3"),
+                Choice(id: "1_2_c", text: "Count the doors you pass. Remember them.", effects: ChoiceEffects(fear: 5, awareness: 10, setFlags: ["counted_doors"]), nextSceneId: "1_3"),
+                Choice(id: "1_2_d", text: "Say nothing. Match her pace exactly.", effects: ChoiceEffects(control: 10, setFlags: ["matched_pace"]), nextSceneId: "1_3")
+            ]
+        ),
+
+        // Block 1, Scene 3 - LOCKED PATH (tried escape in car)
+        GameScene(
+            id: "1_3_locked",
+            paragraphs: [
+                "The door doesn't move. Not locked—fused. As if it was never meant to open.",
+                "The driver's eyes appear in the rearview mirror. They don't look away.",
+                "'Passengers remain seated,' they say. The voice is yours. Exactly yours.",
+                "The facility materializes outside the windows. You don't remember the car stopping."
+            ],
+            choices: [
+                Choice(id: "1_3_lock_a", text: "Accept that there's no escape.", effects: ChoiceEffects(trust: 10, fear: 5, control: -10, setFlags: ["accepted_trap"]), nextSceneId: "1_4"),
+                Choice(id: "1_3_lock_b", text: "Demand to know who the driver is.", effects: ChoiceEffects(trust: -10, awareness: 15, setFlags: ["demanded_driver"]), nextSceneId: "1_4_confrontation"),
+                Choice(id: "1_3_lock_c", text: "Close your eyes. Wait for it to be over.", effects: ChoiceEffects(fear: 10, control: -5, setFlags: ["closed_eyes"]), nextSceneId: "1_4"),
+                Choice(id: "1_3_lock_d", text: "Memorize the driver's face.", effects: ChoiceEffects(awareness: 10, setFlags: ["memorized_driver"]), nextSceneId: "1_4_vigilant")
+            ]
+        ),
+
+        // Block 1, Scene 3 - DELAYED PATH (searched apartment)
+        GameScene(
+            id: "1_3_delayed",
+            paragraphs: [
+                "Your apartment is different. Things have moved. The photographs on your shelf show people you don't recognize.",
+                "In the drawer where you keep important documents: empty. As if you never had a past worth saving.",
+                "The car outside honks once. Then again. Then continuously. A sound that burrows into your skull.",
+                "When you finally emerge, the driver says nothing. But you notice the passenger seat is warm. Someone was just there."
+            ],
+            choices: [
+                Choice(id: "1_3_del_a", text: "Ask who was in the passenger seat.", effects: ChoiceEffects(trust: -5, awareness: 10, setFlags: ["asked_passenger"]), nextSceneId: "1_4_suspicious"),
+                Choice(id: "1_3_del_b", text: "Keep what you found to yourself.", effects: ChoiceEffects(control: 10, awareness: 5, setFlags: ["kept_secret"]), nextSceneId: "1_4"),
+                Choice(id: "1_3_del_c", text: "Apologize for the delay.", effects: ChoiceEffects(trust: 10, setFlags: ["apologized_delay"]), nextSceneId: "1_4"),
+                Choice(id: "1_3_del_d", text: "You're imagining things. Get in the car.", effects: ChoiceEffects(trust: 5, awareness: -10, setFlags: ["denied_anomaly"]), nextSceneId: "1_4")
+            ]
+        ),
+
+        // Block 1, Scene 3 - CAUGHT PATH (tried to run)
+        GameScene(
+            id: "1_3_caught",
+            paragraphs: [
+                "You don't make it far. The street stretches endlessly. Your legs move but the distance stays the same.",
+                "They catch you without running. Simply appear beside you. Two figures in grey. Faces you can't focus on.",
+                "'The assignment is mandatory,' one says. 'You already agreed.'",
+                "You don't remember agreeing to anything. But you feel the weight of a signature you don't recall making."
+            ],
+            choices: [
+                Choice(id: "1_3_catch_a", text: "Go with them quietly.", effects: ChoiceEffects(trust: 5, fear: 10, control: -15, setFlags: ["captured_quiet"]), nextSceneId: "1_4_captive"),
+                Choice(id: "1_3_catch_b", text: "'I never signed anything.'", effects: ChoiceEffects(trust: -10, awareness: 10, setFlags: ["denied_signature"]), nextSceneId: "1_4_interrogation"),
+                Choice(id: "1_3_catch_c", text: "Ask what happens if you refuse.", effects: ChoiceEffects(fear: 5, awareness: 10, setFlags: ["asked_refusal"]), nextSceneId: "1_4_threat"),
+                Choice(id: "1_3_catch_d", text: "Try to run again. Don't stop.", effects: ChoiceEffects(fear: 15, control: 5, setFlags: ["ran_again"]), nextSceneId: "1_4_exhausted")
+            ]
+        ),
+
+        // Block 1, Scene 3 - DEFIANT PATH (faced them)
+        GameScene(
+            id: "1_3_defiant",
+            paragraphs: [
+                "The door opens before you reach it. They stand in the doorway. Not threatening. Almost impressed.",
+                "'You're different,' one says. 'Most hide. Most run.'",
+                "'That's noted,' the other adds. Their clipboard shows a column of checkmarks. Yours is the only X.",
+                "They step aside. Gesture inward. 'Your choice to enter. We won't force you.'"
+            ],
+            choices: [
+                Choice(id: "1_3_def_a", text: "Enter on your own terms.", effects: ChoiceEffects(trust: 5, control: 15, setFlags: ["entered_willing"]), nextSceneId: "1_4_respected"),
+                Choice(id: "1_3_def_b", text: "Demand answers first.", effects: ChoiceEffects(trust: -5, control: 10, awareness: 10, setFlags: ["demanded_answers"]), nextSceneId: "1_4_informed"),
+                Choice(id: "1_3_def_c", text: "Walk past them. Explore.", effects: ChoiceEffects(trust: -10, control: 10, awareness: 15, setFlags: ["explored_freely"]), nextSceneId: "1_4_explorer"),
+                Choice(id: "1_3_def_d", text: "Refuse. Stand your ground.", effects: ChoiceEffects(trust: -15, control: 15, fear: -5, setFlags: ["absolute_refusal"]), nextSceneId: "1_4_standoff")
+            ]
+        ),
+
+        // Block 1, Scene 3 - FOUND PATH (tried to hide)
+        GameScene(
+            id: "1_3_found",
+            paragraphs: [
+                "You choose the closet. The space under the bed. Behind the curtains. Every hiding place you try, they're already there.",
+                "Not waiting. Just present. As if they occupy all spaces simultaneously.",
+                "'Time distorts during resistance,' one explains. 'You've been hiding for three hours. Also three seconds.'",
+                "Your body aches. Your mind is numb. You've been fighting something that doesn't recognize conflict."
+            ],
+            choices: [
+                Choice(id: "1_3_found_a", text: "Give up. Go with them.", effects: ChoiceEffects(trust: 10, control: -20, fear: 10, setFlags: ["surrendered_exhausted"]), nextSceneId: "1_4_broken"),
+                Choice(id: "1_3_found_b", text: "Ask how they do it.", effects: ChoiceEffects(fear: 5, awareness: 15, setFlags: ["asked_how"]), nextSceneId: "1_4_curious"),
+                Choice(id: "1_3_found_c", text: "Accept that normal rules don't apply.", effects: ChoiceEffects(awareness: 10, setFlags: ["accepted_rules"]), nextSceneId: "1_4"),
+                Choice(id: "1_3_found_d", text: "Keep trying. Keep hiding.", effects: ChoiceEffects(trust: -10, fear: 15, control: 5, setFlags: ["persistent_hiding"]), nextSceneId: "1_4_lost")
+            ]
+        ),
+
+        // Block 1, Scene 3 - WITNESSED PATH (called someone)
+        GameScene(
+            id: "1_3_witnessed",
+            paragraphs: [
+                "The phone connects. You speak quickly. Address. Situation. Fear in your voice.",
+                "The person on the other end pauses. 'I'm sorry,' they say. 'I don't know anyone by that name.'",
+                "They hang up. You call again. Different number. Same response. Your name has been forgotten.",
+                "The door opens slowly. 'Phone calls don't work the way you think,' they say. 'Not anymore.'"
+            ],
+            choices: [
+                Choice(id: "1_3_wit_a", text: "Accept that you're alone.", effects: ChoiceEffects(trust: -5, fear: 10, setFlags: ["accepted_alone"]), nextSceneId: "1_4_isolated"),
+                Choice(id: "1_3_wit_b", text: "Ask what they did to you.", effects: ChoiceEffects(fear: 10, awareness: 15, setFlags: ["asked_what_done"]), nextSceneId: "1_4_truth"),
+                Choice(id: "1_3_wit_c", text: "Try one more call. Anyone.", effects: ChoiceEffects(fear: 5, control: 5, setFlags: ["one_more_call"]), nextSceneId: "1_4"),
+                Choice(id: "1_3_wit_d", text: "Put down the phone. Go with them.", effects: ChoiceEffects(trust: 10, control: -5, setFlags: ["phone_down"]), nextSceneId: "1_4")
+            ]
+        ),
+
+        // Block 1, Scene 3 - RELUCTANT PATH (looked back at outside)
+        GameScene(
+            id: "1_3_reluctant",
+            paragraphs: [
+                "The sky is the wrong color. You're certain it was blue when you left your apartment. Now it's grey. The same grey as the building.",
+                "The woman in grey notices your hesitation. 'It's always like that,' she says. 'The transition.'",
+                "'What transition?' The question escapes before you can stop it.",
+                "She almost smiles. Almost. 'You'll see.'"
+            ],
+            choices: [
+                Choice(id: "1_3_rel_a", text: "Follow without more questions.", effects: ChoiceEffects(trust: 10, fear: 5, setFlags: ["followed_silent"]), nextSceneId: "1_4"),
+                Choice(id: "1_3_rel_b", text: "Press her for more information.", effects: ChoiceEffects(trust: -5, awareness: 10, setFlags: ["pressed_info"]), nextSceneId: "1_4_informed"),
+                Choice(id: "1_3_rel_c", text: "Memorize the color of the sky. Before.", effects: ChoiceEffects(awareness: 15, setFlags: ["memorized_sky"]), nextSceneId: "1_4_vigilant"),
+                Choice(id: "1_3_rel_d", text: "Accept the grey. It feels right somehow.", effects: ChoiceEffects(trust: 15, awareness: -10, setFlags: ["accepted_grey"]), nextSceneId: "1_4_compliant")
             ]
         ),
 
@@ -136,6 +311,295 @@ struct Blocks1to10 {
                     text: "Sign it, but write tomorrow's date over with today's.",
                     effects: ChoiceEffects(control: 10, awareness: 10, setFlags: ["altered_date"])
                 )
+            ]
+        ),
+
+        // Block 1, Scene 4 - CONFRONTATION PATH
+        GameScene(
+            id: "1_4_confrontation",
+            paragraphs: [
+                "The driver turns. Their face is a mirror. Your reflection stares back, but the expression is serene where yours is terrified.",
+                "'You are asking the wrong questions,' your reflection says. 'The question isn't who I am.'",
+                "'The question is: who were you before we started?'",
+                "The car door opens. You don't remember reaching for it."
+            ],
+            choices: [
+                Choice(id: "1_4_conf_a", text: "Answer the question honestly.", effects: ChoiceEffects(trust: 5, awareness: 15, setFlags: ["honest_reflection"])),
+                Choice(id: "1_4_conf_b", text: "'I don't remember.'", effects: ChoiceEffects(fear: 10, awareness: 10, setFlags: ["admitted_amnesia"])),
+                Choice(id: "1_4_conf_c", text: "Refuse to engage. Exit the car.", effects: ChoiceEffects(control: 10, setFlags: ["rejected_reflection"])),
+                Choice(id: "1_4_conf_d", text: "Touch the mirror-face.", effects: ChoiceEffects(fear: 15, awareness: 20, setFlags: ["touched_reflection"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - VIGILANT PATH
+        GameScene(
+            id: "1_4_vigilant",
+            paragraphs: [
+                "You catalog everything. The driver's hands—too still. The car's interior—no serial numbers anywhere. The route—impossible geometry.",
+                "The facility appears. Your mental map doesn't match reality. You turned left six times without ever turning right.",
+                "A woman waits at the entrance. She watches you watching everything.",
+                "'Observant ones require special processing,' she says. It sounds like praise. It feels like a warning."
+            ],
+            choices: [
+                Choice(id: "1_4_vig_a", text: "Continue observing. Collect more data.", effects: ChoiceEffects(awareness: 15, setFlags: ["continued_observing"])),
+                Choice(id: "1_4_vig_b", text: "Stop looking. Blend in.", effects: ChoiceEffects(trust: 10, awareness: -10, setFlags: ["stopped_observing"])),
+                Choice(id: "1_4_vig_c", text: "Ask what 'special processing' means.", effects: ChoiceEffects(fear: 10, awareness: 10, setFlags: ["asked_processing"])),
+                Choice(id: "1_4_vig_d", text: "Thank her for the observation.", effects: ChoiceEffects(trust: 5, control: 5, setFlags: ["accepted_praise"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - SUSPICIOUS PATH
+        GameScene(
+            id: "1_4_suspicious",
+            paragraphs: [
+                "The driver says nothing. The seat beside you cools to room temperature. Evidence fading.",
+                "At the facility, the woman in grey examines you differently. Longer. Her eyes track micro-expressions.",
+                "'You've noticed things,' she says. 'Most don't. Not this early.'",
+                "She writes something on her clipboard. The pen moves but leaves no mark you can see."
+            ],
+            choices: [
+                Choice(id: "1_4_sus_a", text: "Ask what she's writing.", effects: ChoiceEffects(trust: -10, awareness: 10, setFlags: ["asked_writing"])),
+                Choice(id: "1_4_sus_b", text: "Pretend you noticed nothing.", effects: ChoiceEffects(trust: 5, control: 10, setFlags: ["feigned_ignorance"])),
+                Choice(id: "1_4_sus_c", text: "Tell her everything you've observed.", effects: ChoiceEffects(trust: -5, awareness: 15, setFlags: ["full_disclosure"])),
+                Choice(id: "1_4_sus_d", text: "Stay silent. Watch her instead.", effects: ChoiceEffects(control: 10, awareness: 10, setFlags: ["watched_her"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - CAPTIVE PATH
+        GameScene(
+            id: "1_4_captive",
+            paragraphs: [
+                "They walk you through corridors that curve inward. The facility swallows you. Every step takes you further from exits.",
+                "A room. A chair. Restraints that look medical. Clean. Precise.",
+                "'This isn't punishment,' one says. 'This is preparation.'",
+                "The chair waits. Your body knows it. Has sat here before. Somewhere. Somewhen."
+            ],
+            choices: [
+                Choice(id: "1_4_cap_a", text: "Sit willingly. Get it over with.", effects: ChoiceEffects(trust: 15, control: -20, setFlags: ["sat_willingly"])),
+                Choice(id: "1_4_cap_b", text: "Ask what you're being prepared for.", effects: ChoiceEffects(awareness: 10, setFlags: ["asked_preparation"])),
+                Choice(id: "1_4_cap_c", text: "Resist. Even now.", effects: ChoiceEffects(trust: -15, fear: 10, control: 10, setFlags: ["resisted_chair"])),
+                Choice(id: "1_4_cap_d", text: "Study the restraints. Look for weaknesses.", effects: ChoiceEffects(control: 5, awareness: 15, setFlags: ["studied_restraints"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - INTERROGATION PATH
+        GameScene(
+            id: "1_4_interrogation",
+            paragraphs: [
+                "They lead you to a room with no corners. The walls curve seamlessly. No shadows. Nowhere to hide.",
+                "A single document appears on a screen. Your signature. A date that hasn't happened yet.",
+                "'You signed this three months ago,' one says. 'You will sign this three months ago.'",
+                "'Time is not a line here. You'll understand when you stop thinking in befores and afters.'"
+            ],
+            choices: [
+                Choice(id: "1_4_int_a", text: "Try to understand.", effects: ChoiceEffects(trust: 5, awareness: 15, setFlags: ["tried_understand"])),
+                Choice(id: "1_4_int_b", text: "'That's impossible.'", effects: ChoiceEffects(trust: -5, awareness: 5, setFlags: ["denied_impossible"])),
+                Choice(id: "1_4_int_c", text: "Accept the contradiction.", effects: ChoiceEffects(trust: 10, awareness: 10, setFlags: ["accepted_paradox"])),
+                Choice(id: "1_4_int_d", text: "Demand to see the original.", effects: ChoiceEffects(trust: -10, control: 10, setFlags: ["demanded_original"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - THREAT PATH
+        GameScene(
+            id: "1_4_threat",
+            paragraphs: [
+                "They exchange a glance. Communicate without words.",
+                "'Refusal isn't possible,' one says. 'Not in the way you're imagining.'",
+                "'You don't stay outside,' the other adds. 'Outside doesn't exist for people like us.'",
+                "The word 'us' hangs in the air. Including you. Already."
+            ],
+            choices: [
+                Choice(id: "1_4_thr_a", text: "Accept that you're already part of this.", effects: ChoiceEffects(trust: 10, control: -10, setFlags: ["accepted_inclusion"])),
+                Choice(id: "1_4_thr_b", text: "'What do you mean, people like us?'", effects: ChoiceEffects(awareness: 15, setFlags: ["asked_like_us"])),
+                Choice(id: "1_4_thr_c", text: "Deny any connection.", effects: ChoiceEffects(trust: -10, control: 5, setFlags: ["denied_connection"])),
+                Choice(id: "1_4_thr_d", text: "Ask what happened to others who refused.", effects: ChoiceEffects(fear: 15, awareness: 10, setFlags: ["asked_others"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - EXHAUSTED PATH
+        GameScene(
+            id: "1_4_exhausted",
+            paragraphs: [
+                "You run until running means nothing. The street loops. The sky stays grey. Your legs give out.",
+                "They stand over you. Patient. Almost kind.",
+                "'Resistance is metabolic,' one says. 'You've burned through yours.'",
+                "They help you stand. Guide you forward. Your body moves without consulting your mind."
+            ],
+            choices: [
+                Choice(id: "1_4_exh_a", text: "Let your body lead.", effects: ChoiceEffects(trust: 10, control: -15, setFlags: ["body_led"])),
+                Choice(id: "1_4_exh_b", text: "Fight with words since body failed.", effects: ChoiceEffects(fear: 5, control: 5, awareness: 10, setFlags: ["verbal_resistance"])),
+                Choice(id: "1_4_exh_c", text: "Memorize their faces for later.", effects: ChoiceEffects(control: 5, awareness: 10, setFlags: ["memorized_captors"])),
+                Choice(id: "1_4_exh_d", text: "Close your eyes. Conserve what's left.", effects: ChoiceEffects(control: 10, setFlags: ["conserved_energy"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - RESPECTED PATH
+        GameScene(
+            id: "1_4_respected",
+            paragraphs: [
+                "Inside, the facility unfolds differently for you. Doors open before you reach them. Corridors straighten.",
+                "The woman in grey walks beside you now. Equal pace. Equal status.",
+                "'You'll be assigned to the upper floors,' she says. 'Fewer... adjustments required.'",
+                "You sense you've earned something. You don't know if you want it."
+            ],
+            choices: [
+                Choice(id: "1_4_resp_a", text: "Accept the privilege.", effects: ChoiceEffects(trust: 10, control: 10, setFlags: ["accepted_privilege"])),
+                Choice(id: "1_4_resp_b", text: "Ask about the adjustments others face.", effects: ChoiceEffects(fear: 5, awareness: 15, setFlags: ["asked_adjustments"])),
+                Choice(id: "1_4_resp_c", text: "Refuse special treatment.", effects: ChoiceEffects(trust: -5, control: 5, awareness: 5, setFlags: ["refused_special"])),
+                Choice(id: "1_4_resp_d", text: "Stay quiet. Observe the privilege in action.", effects: ChoiceEffects(control: 10, awareness: 10, setFlags: ["observed_privilege"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - INFORMED PATH
+        GameScene(
+            id: "1_4_informed",
+            paragraphs: [
+                "She stops walking. Turns to face you. For a moment, her expression flickers—something human beneath the grey.",
+                "'The work is categorization,' she says. 'You'll sort things. Concepts. Memories. Sometimes people.'",
+                "'The division is real. What we divide is... harder to explain.'",
+                "She resumes walking. The moment of honesty sealed behind professionalism."
+            ],
+            choices: [
+                Choice(id: "1_4_inf_a", text: "Thank her for the honesty.", effects: ChoiceEffects(trust: 10, awareness: 10, setFlags: ["thanked_honesty"])),
+                Choice(id: "1_4_inf_b", text: "Ask what she means by dividing people.", effects: ChoiceEffects(fear: 10, awareness: 15, setFlags: ["asked_division"])),
+                Choice(id: "1_4_inf_c", text: "Store the information. Use it later.", effects: ChoiceEffects(control: 10, awareness: 10, setFlags: ["stored_info"])),
+                Choice(id: "1_4_inf_d", text: "Pretend you didn't understand.", effects: ChoiceEffects(trust: 5, control: 10, setFlags: ["feigned_confusion"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - EXPLORER PATH
+        GameScene(
+            id: "1_4_explorer",
+            paragraphs: [
+                "They don't stop you. The corridors multiply. Doors open to rooms that shouldn't exist—offices from other decades, spaces too large for the building.",
+                "In one room: rows of desks. Empty. Waiting. Each with a name plate. You find yours. The date underneath reads next week.",
+                "Footsteps behind you. The woman in grey.",
+                "'You've seen your assignment,' she says. 'Most take longer to find it.'"
+            ],
+            choices: [
+                Choice(id: "1_4_exp_a", text: "Accept the assignment.", effects: ChoiceEffects(trust: 10, awareness: 10, setFlags: ["accepted_assignment"])),
+                Choice(id: "1_4_exp_b", text: "Keep exploring. There's more to find.", effects: ChoiceEffects(trust: -10, control: 10, awareness: 15, setFlags: ["kept_exploring"])),
+                Choice(id: "1_4_exp_c", text: "Ask why the date is in the future.", effects: ChoiceEffects(awareness: 15, setFlags: ["asked_future_date"])),
+                Choice(id: "1_4_exp_d", text: "Remove your nameplate.", effects: ChoiceEffects(trust: -15, control: 15, setFlags: ["removed_nameplate"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - STANDOFF PATH
+        GameScene(
+            id: "1_4_standoff",
+            paragraphs: [
+                "You stand. They wait. The moment stretches into something infinite.",
+                "'No one has ever refused successfully,' one says. Almost gentle. Almost admiring.",
+                "'But the attempt matters,' the other adds. 'It's recorded. It becomes part of the pattern.'",
+                "The building hums around you. Waiting for your choice to resolve into action."
+            ],
+            choices: [
+                Choice(id: "1_4_stand_a", text: "Continue refusing. Forever if needed.", effects: ChoiceEffects(trust: -20, control: 20, setFlags: ["eternal_refusal"])),
+                Choice(id: "1_4_stand_b", text: "Ask what pattern they're recording.", effects: ChoiceEffects(awareness: 15, setFlags: ["asked_pattern"])),
+                Choice(id: "1_4_stand_c", text: "Compromise. Enter but don't participate.", effects: ChoiceEffects(control: 10, setFlags: ["entered_passive"])),
+                Choice(id: "1_4_stand_d", text: "Give in. The point was made.", effects: ChoiceEffects(trust: 5, fear: -5, setFlags: ["point_made"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - BROKEN PATH
+        GameScene(
+            id: "1_4_broken",
+            paragraphs: [
+                "Something inside you gives way. Not a breaking—a releasing. The tension you didn't know you held dissolves.",
+                "The facility embraces you. Gentle now. The corridors straighten. The lights warm.",
+                "'Rest,' someone says. 'The work will be easier now. You've stopped fighting what you already are.'",
+                "The words should frighten you. They don't. Nothing does."
+            ],
+            choices: [
+                Choice(id: "1_4_broke_a", text: "Accept the peace.", effects: ChoiceEffects(trust: 20, control: -20, awareness: -15, setFlags: ["accepted_peace"])),
+                Choice(id: "1_4_broke_b", text: "Search for the fear you've lost.", effects: ChoiceEffects(fear: 5, awareness: 10, setFlags: ["sought_fear"])),
+                Choice(id: "1_4_broke_c", text: "Ask what you already are.", effects: ChoiceEffects(awareness: 15, setFlags: ["asked_nature"])),
+                Choice(id: "1_4_broke_d", text: "Rest. Just rest.", effects: ChoiceEffects(trust: 15, setFlags: ["chose_rest"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - CURIOUS PATH
+        GameScene(
+            id: "1_4_curious",
+            paragraphs: [
+                "'Time folds here,' they explain. Walking you through halls that seem to spiral inward. 'Space too. The building is larger than the building.'",
+                "'You'll learn to navigate it. Eventually. The learning takes different amounts of time for different people.'",
+                "They pause at a door. Plain. Unmarked.",
+                "'This is where you start. Questions are allowed. Answers are expensive.'"
+            ],
+            choices: [
+                Choice(id: "1_4_cur_a", text: "Ask what currency answers cost.", effects: ChoiceEffects(awareness: 15, setFlags: ["asked_currency"])),
+                Choice(id: "1_4_cur_b", text: "Enter without asking.", effects: ChoiceEffects(trust: 10, control: 5, setFlags: ["entered_curious"])),
+                Choice(id: "1_4_cur_c", text: "Ask if you can pay in advance.", effects: ChoiceEffects(control: 5, awareness: 10, setFlags: ["offered_payment"])),
+                Choice(id: "1_4_cur_d", text: "Save your questions for later.", effects: ChoiceEffects(control: 10, setFlags: ["saved_questions"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - LOST PATH
+        GameScene(
+            id: "1_4_lost",
+            paragraphs: [
+                "You hide until hiding loses meaning. Hours. Days. The building provides—food appears, water flows from taps that weren't there.",
+                "But you never find an exit. Every window shows the same grey sky. Every door opens to another room.",
+                "Eventually, a woman in grey finds you. Asleep in a corner. Exhausted beyond thought.",
+                "'You made yourself at home,' she says. No judgment. Just observation."
+            ],
+            choices: [
+                Choice(id: "1_4_lost_a", text: "Admit defeat. Follow her.", effects: ChoiceEffects(trust: 10, control: -15, setFlags: ["admitted_defeat"])),
+                Choice(id: "1_4_lost_b", text: "Ask how long you were hiding.", effects: ChoiceEffects(fear: 10, awareness: 10, setFlags: ["asked_duration"])),
+                Choice(id: "1_4_lost_c", text: "Continue hiding. Even now.", effects: ChoiceEffects(trust: -10, control: 5, fear: 15, setFlags: ["continued_hiding"])),
+                Choice(id: "1_4_lost_d", text: "Accept that this is home now.", effects: ChoiceEffects(trust: 15, fear: -5, setFlags: ["accepted_home"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - ISOLATED PATH
+        GameScene(
+            id: "1_4_isolated",
+            paragraphs: [
+                "The facility processes you in silence. No introductions. No orientation. Just corridors and doors and the sound of your own footsteps.",
+                "Your desk appears when you need it. Your quarters manifest when you're tired. The building anticipates you.",
+                "No one speaks to you. You begin to wonder if they can see you at all.",
+                "A note appears on your terminal: 'Connection comes later. First, understand separation.'"
+            ],
+            choices: [
+                Choice(id: "1_4_iso_a", text: "Embrace the solitude.", effects: ChoiceEffects(control: 10, awareness: 10, setFlags: ["embraced_solitude"])),
+                Choice(id: "1_4_iso_b", text: "Try to make contact with others.", effects: ChoiceEffects(trust: -5, fear: 5, setFlags: ["sought_contact"])),
+                Choice(id: "1_4_iso_c", text: "Study the building's anticipation.", effects: ChoiceEffects(awareness: 15, setFlags: ["studied_anticipation"])),
+                Choice(id: "1_4_iso_d", text: "Type a response on the terminal.", effects: ChoiceEffects(control: 5, awareness: 10, setFlags: ["terminal_response"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - TRUTH PATH
+        GameScene(
+            id: "1_4_truth",
+            paragraphs: [
+                "They tell you. Not everything—that would take longer than you have—but enough.",
+                "'You were identified,' they say. 'Your pattern matched criteria. You were always going to end up here.'",
+                "'The calls you couldn't make? The memories slipping? That started months ago. You just noticed today.'",
+                "'Welcome to the process. You're further along than you know.'"
+            ],
+            choices: [
+                Choice(id: "1_4_truth_a", text: "Accept the truth.", effects: ChoiceEffects(trust: 10, awareness: 20, setFlags: ["accepted_truth"])),
+                Choice(id: "1_4_truth_b", text: "Fight against it.", effects: ChoiceEffects(trust: -15, control: 10, setFlags: ["fought_truth"])),
+                Choice(id: "1_4_truth_c", text: "Ask what the process leads to.", effects: ChoiceEffects(fear: 10, awareness: 15, setFlags: ["asked_destination"])),
+                Choice(id: "1_4_truth_d", text: "Demand to know how to stop it.", effects: ChoiceEffects(control: 10, awareness: 10, setFlags: ["demanded_stop"]))
+            ]
+        ),
+
+        // Block 1, Scene 4 - COMPLIANT PATH
+        GameScene(
+            id: "1_4_compliant",
+            paragraphs: [
+                "The grey feels comfortable now. Natural. The facility wraps around you like a memory you didn't know you had.",
+                "The woman guides you to your station. Your chair. Your screen. The numbers wait.",
+                "'You'll do well here,' she says. It sounds like prophecy.",
+                "You sit. You begin. The work feels right. The rightness feels like home."
+            ],
+            choices: [
+                Choice(id: "1_4_comp_a", text: "Lose yourself in the work.", effects: ChoiceEffects(trust: 20, control: -10, awareness: -15, setFlags: ["lost_in_work"])),
+                Choice(id: "1_4_comp_b", text: "Maintain a small part of resistance.", effects: ChoiceEffects(control: 5, awareness: 5, setFlags: ["small_resistance"])),
+                Choice(id: "1_4_comp_c", text: "Ask what the numbers mean.", effects: ChoiceEffects(awareness: 10, setFlags: ["asked_meaning"])),
+                Choice(id: "1_4_comp_d", text: "Accept without questioning.", effects: ChoiceEffects(trust: 15, setFlags: ["pure_acceptance"]))
             ]
         ),
 
